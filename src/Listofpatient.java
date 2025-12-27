@@ -1,5 +1,5 @@
 public class Listofpatient {
-    private class Node {
+    public class Node {
         Patient data;
         Node next;
 
@@ -9,7 +9,7 @@ public class Listofpatient {
         }
     }
 
-    private Node head;
+     Node head;
 
     public Listofpatient() {
         head = null;
@@ -31,11 +31,11 @@ public class Listofpatient {
         current.next = newNode;
     }
 
-    // Remove patient by ID
+    // Remove patient by their ID's
     public void removePatient(int id) {
         if (head == null) {
             System.out.println("No one in the list!");
-            return;
+
         }
 
         if (head.data.id == id) {
@@ -57,7 +57,7 @@ public class Listofpatient {
             cur = cur.next;
         }
 
-        System.out.println("There is no patient: " + id);
+        System.out.println("There is no patient: " +  id);
     }
 
     // Finding patient by their ID's
@@ -73,11 +73,11 @@ public class Listofpatient {
         return null;
     }
 
-    // Printing all of the patients
+    // Printing patients
     public void printList() {
         if (head == null) {
             System.out.println("No patients in list");
-            return;
+
         }
 
         Node current = head;

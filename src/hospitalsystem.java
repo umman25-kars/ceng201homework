@@ -8,39 +8,37 @@ public class hospitalsystem {
 
     public hospitalsystem() {
         patientList = new Listofpatient();
-        prioritytreatmentqueue prioritytreatmentqueue = new prioritytreatmentqueue();
+        treatmentQueue = new prioritytreatmentqueue();
         dischargeStack = new stackdischarge();
         patientmap = new HashMap<>();
     }
 
     public void addPatient(Patient p) {
         patientList.addPatient(p);
-        patientmap.put(p.id, p);
+        patientmap.put(p.id,p);
     }
 
-    public void addTreatmentOrder(treatmentrequest order) {
-        treatmentorder.enqueue(order);
+    public void addTreatmentOrder(TreatmentRequest order) {
+        treatmentQueue.enqueue(order);
     }
 
     public void processTreatment() {
-        treatmentorder order = treatmentQueue.dequeue();
+        TreatmentRequest order = treatmentQueue.dequeue();
         if (order == null) {
             System.out.println("No treatment order.");
             return;
-        }
-        dischargeStack.push(new dischargesystem(order.patientId));
-        patientList.removePatient(order.patientId);
-        patientmap.remove(order.patientId);
+        }else
+        dischargeStack.push(new DischargeRecord(order.patientID));
+        patientList.removePatient(order.patientID);
+        patientmap.remove(order.patientID);
     }
 
     public void printSystemState() {
         System.out.println("Lıst of the patient");
         patientList.printList();
-
         System.out.println("Queue treatments");
         treatmentQueue.printQueue();
-
-        System.out.println("Stack dıscharges");
+        System.out.println("Stack discharges");
         dischargeStack.printStack();
     }
 

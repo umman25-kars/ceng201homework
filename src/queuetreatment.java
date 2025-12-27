@@ -1,9 +1,9 @@
 public class queuetreatment {
     private class Node {
-        treatmentorder data;
+        TreatmentRequest data;
         Node next;
 
-        Node(treatmentorder data) {
+        Node(TreatmentRequest data) {
             this.data = data;
             this.next = null;
         }
@@ -20,7 +20,7 @@ public class queuetreatment {
     }
 
     // Adding treatment request to our queue
-    public void enqueue(treatmentorder request) {
+    public void enqueue(TreatmentRequest request) {
         Node newNode = new Node(request);
 
         if (rear == null) {
@@ -30,16 +30,17 @@ public class queuetreatment {
             rear = newNode;
         }
         size++;
+        return;
     }
 
     // Removing the first treatment request
-    public treatmentorder dequeue() {
+    public TreatmentRequest dequeue() {
         if (front == null) {
-            System.out.println("No element in the queue");
+            System.out.println("No element in this queue");
             return null;
         }
 
-        treatmentorder removed = front.data;
+        TreatmentRequest removed = front.data;
         front = front.next;
 
         if (front == null) {

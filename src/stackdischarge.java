@@ -1,9 +1,9 @@
 public class stackdischarge {
     private class Node {
-        dischargesystem data;
+        DischargeRecord data;
         Node next;
 
-        Node(dischargesystem data) {
+        Node(DischargeRecord data) {
             this.data = data;
             this.next = null;
         }
@@ -18,7 +18,7 @@ public class stackdischarge {
     }
 
     // Adding discharge record
-    public void push(dischargesystem record) {
+    public void push(DischargeRecord record) {
         Node newNode = new Node(record);
         newNode.next = top;
         top = newNode;
@@ -26,20 +26,20 @@ public class stackdischarge {
     }
 
     // Remove latest discharge
-    public dischargesystem pop() {
+    public DischargeRecord pop() {
         if (top == null) {
-            System.out.println(" No element in this stack ");
+            System.out.println(" No any element in this stack ");
             return null;
         }
 
-        dischargesystem removed = top.data;
+        DischargeRecord removed = top.data;
         top = top.next;
         size--;
         return removed;
     }
 
     // Look end of the discharge
-    public dischargesystem peek() {
+    public DischargeRecord peek() {
         if (top == null) {
             return null;
         }

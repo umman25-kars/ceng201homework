@@ -7,7 +7,7 @@ public class prioritytreatmentqueue {
         normalqueue = new queuetreatment();
     }
 
-    public void enqueue(treatmentorder order) {
+    public void enqueue(TreatmentRequest order) {
         if (order.priority) {
             priorityqueue.enqueue(order);
         } else {
@@ -15,17 +15,17 @@ public class prioritytreatmentqueue {
         }
     }
 
-    public treatmentorder dequeue() {
+    public TreatmentRequest dequeue() {
         if (priorityqueue.size() > 0) {
             return priorityqueue.dequeue();
-        }
-        return normalqueue.dequeue();
+        }else
+            return normalqueue.dequeue();
     }
 
     public void printQueue() {
-        System.out.println("Priority Order:");
+        System.out.println("normal order:");
         priorityqueue.printqueue();
-        System.out.println("Normal Order:");
+        System.out.println("priority order:");
         normalqueue.printqueue();
     }
 }

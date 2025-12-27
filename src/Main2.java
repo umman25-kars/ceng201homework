@@ -1,17 +1,17 @@
 public class Main2 {
     public static void main(String[] args) {
-        System.out.println("Queue Treatment");
+        System.out.println("Queue Treatment");//Testing task 2
 
         queuetreatment queue = new queuetreatment();//adding treatments to our queue
 
-        queue.enqueue(new queuetreatment(1));
-        queue.enqueue(new queuetreatment(2));
-        queue.enqueue(new queuetreatment(3));
-        queue.enqueue(new queuetreatment(4));
-        queue.enqueue(new queuetreatment(5));
-        queue.enqueue(new queuetreatment(6));
-        queue.enqueue(new queuetreatment(7));
-        queue.enqueue(new queuetreatment(8));
+        queue.enqueue(new TreatmentRequest(1,false));
+        queue.enqueue(new TreatmentRequest(2,false));
+        queue.enqueue(new TreatmentRequest(3,true));
+        queue.enqueue(new TreatmentRequest(4,false));
+        queue.enqueue(new TreatmentRequest(5,false));
+        queue.enqueue(new TreatmentRequest(6,true));
+        queue.enqueue(new TreatmentRequest(7,false));
+        queue.enqueue(new TreatmentRequest(8,false));
 
         System.out.println("8 Request added to queue:");
         queue.printqueue();
@@ -20,6 +20,8 @@ public class Main2 {
         queue.dequeue();
         queue.dequeue();
         queue.dequeue();
+
+        System.out.println("Priorities:" + " 3 , 6");
 
         System.out.println("Queues remain:");
         queue.printqueue();
